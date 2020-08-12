@@ -1,1 +1,45 @@
 
+ .textarea {
+  resize: none;
+  }
+  
+  .jumbotron{
+    text-align:center;
+    background-color: lightcyan;
+    color: black;
+  }
+
+  .hour{
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px dashed #000000;
+    text-align: center;
+    padding-top: 30px;
+  }
+  .past-hour {
+  background-color: rgb(189, 189, 189);
+  border-color: gray;
+  }
+
+  .present-hour {
+  background-color: lightcoral;
+  border-color: lightcoral;
+  }
+
+  .future-hour {
+  background-color: rgb(190, 247, 105);
+  border-color: rgb(190, 247, 105);
+  }
+
+  button {
+  background-color: darkturquoise;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 2em;
+  }
+
+  header {
+  border-bottom-width: 10px;
+  color: black;
+  }
+
+  
