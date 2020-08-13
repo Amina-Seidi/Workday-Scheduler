@@ -10,7 +10,7 @@ $(document).ready(function(){
   // Create a function to create and append rows 
   createRows();
   function createRows(){
-    for ( let i = 8; i < 16; i++){
+    for ( let i = 8; i < 19; i++){
       // Create new rows
       var newRow = $(`<div data-time=${i} class="row" id='${i}'>`); 
       
@@ -20,13 +20,12 @@ $(document).ready(function(){
       
       
       // Create text area
-      var textArea = $(`<textarea rows="4" id="text-entry${i}" class="col-md-10"></textarea>`);
+      var textArea = $(`<textarea rows="4" id="text-entry${i}" value = ${i+1} class="col-md-10"></textarea>`);
       
      
       // Create save button
       var saveBtn = $(`<button id="save" class="col-md-1"><i class="far fa-save"></i></button>`);
 
-      
       $(newRow).append(timeSlot);
       $(newRow).append(textArea);
       $(newRow).append(saveBtn);
@@ -41,7 +40,7 @@ $(document).ready(function(){
     setHour();
     function setHour() {
         var hour = $(".hour");
-        var hourArr = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+        var hourArr = ["8AM","9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM","6PM","7PM"];
         for (var i = 0; i < hourArr.length; i++) {
             hour[i].textContent = hourArr[i];
         }
@@ -49,27 +48,28 @@ $(document).ready(function(){
     };
 
   // Changing the color of each row depending on the current time
-  var currentHour = moment().format('LT');
-  console.log("current hour: " + currentHour);
+  getValue();
+  function getValue() {
+    var currentHour = moment().get('h');
+    console.log("current hour: " + currentHour);
 
-  setColor();
-  function setColor() {
-
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 12; i++) {
 
       var task = $(".row")[i].children[1];
-      var x = parseInt(task.getAttribute("value"));
-      if (x < currentHour) {
-        $(task).addClass("past-hour");
-      } else if (x === currentHour) {
-        $(task).addClass("present-hour");
-      } else if (x > currentHour) {
-        $(task).addClass(".future-hour");
+      console.log(task);
+      var x = (task.getAttribute("value"));
+      console.log(task.getAttribute("value"));
+        if (x > currentHour) {
+          $(task).addClass("future-hour");
+        }else if (x < currentHour) {
+          $(task).addClass("past-hour");
+        }else {
+          $(task).addClass("present-hour");
+        }
       }
-    }
-    }
 
-  
+}
+
   // Local Storage
   var saveBtn = $('button');
     saveBtn.on('click', function(){
