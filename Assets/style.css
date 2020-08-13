@@ -18,17 +18,17 @@
   }
   .past-hour {
   background-color: rgb(189, 189, 189);
-  border-color: gray;
+  border-color: black;
   }
 
   .present-hour {
   background-color: lightcoral;
-  border-color: lightcoral;
+  border-color: black;
   }
 
   .future-hour {
   background-color: rgb(190, 247, 105);
-  border-color: rgb(190, 247, 105);
+  border-color: black;
   }
 
   button {
